@@ -49,7 +49,36 @@
 
 ## 如何开始：
 
-1. 由每个团队的技术负责人[Fork](https://github.com/geeeeeeeeek/git-recipes/wiki/3.3-%E5%88%9B%E5%BB%BA-Pull-Request#mary-fork%E4%BA%86%E5%AE%98%E6%96%B9%E9%A1%B9%E7%9B%AE)一份项目[启动代码库](https://github.com/tws-practice/tw-movie-theater)，将所有成员加为fork后代码库的[collaborators](https://github.com/waylau/github-help/blob/master/Adding%20collaborators%20to%20a%20personal%20repository%20%E6%B7%BB%E5%8A%A0%E5%90%88%E4%BD%9C%E8%80%85%E5%88%B0%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BA%93.md)，共同使用这一代码库协作开发
+1. 由每个团队的技术负责人[Fork](https://github.com/geeeeeeeeek/git-recipes/wiki/3.3-%E5%88%9B%E5%BB%BA-Pull-Request#mary-fork%E4%BA%86%E5%AE%98%E6%96%B9%E9%A1%B9%E7%9B%AE)一份项目[启动代码库](https://github.com/TW-2020NCPT/tw-movie-theater.git)，将所有成员加为fork后代码库的[collaborators](https://github.com/waylau/github-help/blob/master/Adding%20collaborators%20to%20a%20personal%20repository%20%E6%B7%BB%E5%8A%A0%E5%90%88%E4%BD%9C%E8%80%85%E5%88%B0%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BA%93.md)，共同使用这一代码库协作开发
+
+## 如何启动项目
+
+1. 请在 `client` 目录下开发；
+
+2. 需要请求 API 时，请在根目录下打开终端输入 `npm run start`；
+
+3. API 请求规则：
+  - basic url：`http://127.0.0.1:8888`
+  - path url：如 `/v2/movie/···`
+  - 所有请求都需要传入参数 `apikey=0df993c66c0c636e29ecbb5344252a4a`
+  - 所需请求都是获取数据，注意请求方法
+  - 具体 API 说明[请参考](https://www.kancloud.cn/movie/doubanapi/1012068)，注意 **搜索** 请求已无法使用，建议项目中先请求 `电影Top250`，然后对其请求结果进行搜索；
+  - 请求示例代码：
+
+  ```请求电影详情
+    var BASIC_URL = 'http://127.0.0.1:8888';
+    var movieId = '26942674';
+
+    ajax({
+      url: BASIC_URL + '/v2/movie/subject/' + movieId,
+      method: // request method
+      data: {
+        apikey: '0df993c66c0c636e29ecbb5344252a4a'
+        // other request params
+      },
+      // other 
+    });
+  ```
 
 ## 学习资源
 
